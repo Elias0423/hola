@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<head>
+		<style type="text/css">
+			
+			#tablero div > div{
+				width: 40px;
+    			height: 40px;
+    			border-color: gray;
+   		 		border-style: solid;
+				display: table-cell;
+				margin: 0px;
+    			border-width: 2px;
+    			padding: 12px;
+    			text-align: center;
+    			vertical-align: middle;
+    			font-size: 30px;
+			}
+			body > div{
+				display: table-row;
+			}
+
+			#tablero div:nth-child(2n+0) > div:nth-child(even) {
+    			background-color: rgb(0, 101, 0);
+			}
+			#tablero div:nth-child(2n+1) > div:nth-child(odd) {
+    			background-color: rgb(0, 101, 0);
+			}
+			#tablero div > div:hover{
+				background: gray !important;
+			}
+		</style>
+	</head>
+	<title> &#x265A Ajedrez &#x2655 </title>
+
+</head>
+<body >
+	<script type="text/javascript">
+		var seleccionado=false;
+		var ficha;
+		var colorAnt;
+		function manejarEvento( ev ){
+			console.log(ev.target.innerText);
+			console.log(seleccionado);
+			console.log(ficha);
+			sonNegras();
+			if(seleccionado){
+				ev.target.innerText = ficha.innerText;
+				ficha.innerText="";
+				ficha.style.backgroundColor=colorAnt;
+				seleccionado=false;
+				ficha=null;
+			}else{
+				seleccionado=true;
+				colorAnt=ev.target.style.backgroundColor;
+				ficha=ev.target;
+				ficha.style.backgroundColor="#BB0000";
+			}
+		}
+		function sonNegras(){
+			var blancas='\u2656 \u2658 \u2657 \u2655 \u2654 \u2657 \u2658 \u2656 \u2659';
+			var negras='\u265C \u265E \u265D \u265B \u265A \u265D \u265E \u265C \u265F';
+			
+			console.log(blancas);
+			console.log(negras);
+
+			//return negras.indexOf(f) >=0;
+		}
+	</script>
+	<div id="tablero" onclick="manejarEvento(event)">
+		<div class="fila" >
+		<div > &#x265C </div>
+		<div > &#x265E</div>
+		<div > &#x265D </div>
+		<div > &#x265B </div>
+		<div > &#x265A </div>
+		<div > &#x265D</div>
+		<div > &#x265E </div>
+		<div > &#</div>
+	</div>
+	<div ">
+		<div >  &#x265F </div>
+		<div > &#x265F</div>
+		<div > &#x265F </div>
+		<div > &#x265F</div>
+		<div > &#x265F </div>
+		<div > &#x265F</div>
+		<div > &#x265F </div>
+		<div > &#x265F</div>
+	</div>
+	<div>	
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+	</div>
+	<div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+
+	</div>
+	<div >
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+	</div>
+	<div  >
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+	</div>
+	<div >
+		<div > &#x2659 </div>
+		<div > &#x2659</div>
+		<div > &#x2659 </div>
+		<div > &#x2659</div>
+		<div > &#x2659 </div>
+		<div > &#x2659</div>
+		<div > &#x2659 </div>
+		<div > &#x2659</div>
+	</div>
+	<div  >
+		<div > &#x2656</div>
+		<div > &#x2658 </div>
+		<div > &#x2657 </div>
+		<div > &#x2655 </div>
+		<div > &#x2654 </div>
+		<div > &#x2657 </div>
+		<div > &#x2658 </div>
+		<div > &#x2656</div>
+	</div>
+	</div>
+	
+	
+	
+
+</body>
+</html>[33mcommit 927ed385733fc85ce954ab9a8c8ea50a4bf3acbc[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: Elias Avilez <Eliasramos159@gmail.com>
+Date:   Fri Mar 2 08:49:35 2018 -0500
+
+    Primera version
+
+[1mdiff --git a/Ajedrez.html b/Ajedrez.html[m
+[1mnew file mode 100644[m
+[1mindex 0000000..b4c2925[m
+[1m--- /dev/null[m
+[1m+++ b/Ajedrez.html[m
+[36m@@ -0,0 +1,159 @@[m
+[32m+[m[32m<!DOCTYPE html>[m
+[32m+[m[32m<html>[m
+[32m+[m[32m<head>[m
+[32m+[m	[32m<head>[m
+[32m+[m		[32m<style type="text/css">[m
+[32m+[m[41m			[m
+[32m+[m			[32m#tablero div > div{[m
+[32m+[m				[32mwidth: 40px;[m
+[32m+[m[41m    [m			[32mheight: 40px;[m
+[32m+[m[41m    [m			[32mborder-color: gray;[m
+[32m+[m[41m   [m		[41m [m		[32mborder-style: solid;[m
+[32m+[m				[32mdisplay: table-cell;[m
+[32m+[m				[32mmargin: 0px;[m
+[32m+[m[41m    [m			[32mborder-width: 2px;[m
+[32m+[m[41m    [m			[32mpadding: 12px;[m
+[32m+[m[41m    [m			[32mtext-align: center;[m
+[32m+[m[41m    [m			[32mvertical-align: middle;[m
+[32m+[m[41m    [m			[32mfont-size: 30px;[m
+[32m+[m			[32m}[m
+[32m+[m			[32mbody > div{[m
+[32m+[m				[32mdisplay: table-row;[m
+[32m+[m			[32m}[m
+[32m+[m
+[32m+[m			[32m#tablero div:nth-child(2n+0) > div:nth-child(even) {[m
+[32m+[m[41m    [m			[32mbackground-color: rgb(0, 101, 0);[m
+[32m+[m			[32m}[m
+[32m+[m			[32m#tablero div:nth-child(2n+1) > div:nth-child(odd) {[m
+[32m+[m[41m    [m			[32mbackground-color: rgb(0, 101, 0);[m
+[32m+[m			[32m}[m
+[32m+[m			[32m#tablero div > div:hover{[m
+[32m+[m				[32mbackground: gray !important;[m
+[32m+[m			[32m}[m
+[32m+[m		[32m</style>[m
+[32m+[m	[32m</head>[m
+[32m+[m	[32m<title> &#x265A Ajedrez &#x2655 </title>[m
+[32m+[m
+[32m+[m[32m</head>[m
+[32m+[m[32m<body >[m
+[32m+[m	[32m<script type="text/javascript">[m
+[32m+[m		[32mvar seleccionado=false;[m
+[32m+[m		[32mvar ficha;[m
+[32m+[m		[32mvar colorAnt;[m
+[32m+[m		[32mfunction manejarEvento( ev ){[m
+[32m+[m			[32mconsole.log(ev.target.innerText);[m
+[32m+[m			[32mconsole.log(seleccionado);[m
+[32m+[m			[32mconsole.log(ficha);[m
+[32m+[m			[32msonNegras();[m
+[32m+[m			[32mif(seleccionado){[m
+[32m+[m				[32mev.target.innerText = ficha.innerText;[m
+[32m+[m				[32mficha.innerText="";[m
+[32m+[m				[32mficha.style.backgroundColor=colorAnt;[m
+[32m+[m				[32mseleccionado=false;[m
+[32m+[m				[32mficha=null;[m
+[32m+[m			[32m}else{[m
+[32m+[m				[32mseleccionado=true;[m
+[32m+[m				[32mcolorAnt=ev.target.style.backgroundColor;[m
+[32m+[m				[32mficha=ev.target;[m
+[32m+[m				[32mficha.style.backgroundColor="#BB0000";[m
+[32m+[m			[32m}[m
+[32m+[m		[32m}[m
+[32m+[m		[32mfunction sonNegras(){[m
+[32m+[m			[32mvar blancas='\u2656 \u2658 \u2657 \u2655 \u2654 \u2657 \u2658 \u2656 \u2659';[m
+[32m+[m			[32mvar negras='\u265C \u265E \u265D \u265B \u265A \u265D \u265E \u265C \u265F';[m
+[32m+[m[41m			[m
+[32m+[m			[32mconsole.log(blancas);[m
+[32m+[m			[32mconsole.log(negras);[m
+[32m+[m
+[32m+[m			[32m//return negras.indexOf(f) >=0;[m
+[32m+[m		[32m}[m
+[32m+[m	[32m</script>[m
+[32m+[m	[32m<div id="tablero" onclick="manejarEvento(event)">[m
+[32m+[m		[32m<div class="fila" >[m
+[32m+[m		[32m<div > &#x265C </div>[m
+[32m+[m		[32m<div > &#x265E</div>[m
+[32m+[m		[32m<div > &#x265D </div>[m
+[32m+[m		[32m<div > &#x265B </div>[m
+[32m+[m		[32m<div > &#x265A </div>[m
+[32m+[m		[32m<div > &#x265D</div>[m
+[32m+[m		[32m<div > &#x265E </div>[m
+[32m+[m		[32m<div > &#</div>[m
+[32m+[m	[32m</div>[m
+[32m+[m	[32m<div ">[m
+[32m+[m		[32m<div >  &#x265F </div>[m
+[32m+[m		[32m<div > &#x265F</div>[m
+[32m+[m		[32m<div > &#x265F </div>[m
+[32m+[m		[32m<div > &#x265F</div>[m
+[32m+[m		[32m<div > &#x265F </div>[m
+[32m+[m		[32m<div > &#x265F</div>[m
+[32m+[m		[32m<div > &#x265F </div>[m
+[32m+[m		[32m<div > &#x265F</div>[m
+[32m+[m	[32m</div>[m
+[32m+[m	[32m<div>[m[41m	[m
+[32m+[m		[32m<div></div>[m
+[32m+[m		[32m<div></div>[m
+[32m+[m		[32m<div></div>[m
+[32m+[m		[32m<div></div>[m
+[32m+[m		[32m<div></div>[m
+[32m+[m		[32m<div></div>[m
+[32m+[m		[32m<div></div>[m
+[32m+[m		[32m<div></div>[m
+[32m+[m	[32m</div>[m
+[32m+[m	[32m<div>[m
+[32m+[m		[32m<div></div>[m
+[32m+[m		[32m<div></div>[m
+[32m+[m		[32m<div></div>[m
+[32m+[m		[32m<div></div>[m
+[32m+[m		[32m<div></div>[m
+[32m+[m		[32m<div></div>[m
+[32m+[m		[32m<div></div>[m
+[32m+[m		[32m<div></div>[m
+[32m+[m
+[32m+[m	[32m</div>[m
+[32m+[m	[32m<div >[m
+[32m+[m		[32m<div></div>[m
+[32m+[m		[32m<div></div>[m
+[32m+[m		[32m<div></div>[m
+[32m+[m		[32m<div></div>[m
+[32m+[m		[32m<div></div>[m
+[32m+[m		[32m<div></div>[m
+[32m+[m		[32m<div></div>[m
+[32m+[m		[32m<div></div>[m
+[32m+[m	[32m</div>[m
+[32m+[m	[32m<div  >[m
+[32m+[m		[32m<div></div>[m
+[32m+[m		[32m<div></div>[m
+[32m+[m		[32m<div></div>[m
+[32m+[m		[32m<div></div>[m
+[32m+[m		[32m<div></div>[m
+[32m+[m		[32m<div></div>[m
+[32m+[m		[32m<div></div>[m
+[32m+[m		[32m<div></div>[m
+[32m+[m	[32m</div>[m
+[32m+[m	[32m<div >[m
+[32m+[m		[32m<div > &#x2659 </div>[m
+[32m+[m		[32m<div > &#x2659</div>[m
+[32m+[m		[32m<div > &#x2659 </div>[m
+[32m+[m		[32m<div > &#x2659</div>[m
+[32m+[m		[32m<div > &#x2659 </div>[m
+[32m+[m		[32m<div > &#x2659</div>[m
+[32m+[m		[32m<div > &#x2659 </div>[m
+[32m+[m		[32m<div > &#x2659</div>[m
+[32m+[m	[32m</div>[m
+[32m+[m	[32m<div  >[m
+[32m+[m		[32m<div > &#x2656</div>[m
+[32m+[m		[32m<div > &#x2658 </div>[m
+[32m+[m		[32m<div > &#x2657 </div>[m
+[32m+[m		[32m<div > &#x2655 </div>[m
+[32m+[m		[32m<div > &#x2654 </div>[m
+[32m+[m		[32m<div > &#x2657 </div>[m
+[32m+[m		[32m<div > &#x2658 </div>[m
+[32m+[m		[32m<div > &#x2656</div>[m
+[32m+[m	[32m</div>[m
+[32m+[m	[32m</div>[m
+[32m+[m[41m	[m
+[32m+[m[41m	[m
+[32m+[m[41m	[m
+[32m+[m
+[32m+[m[32m</body>[m
+[32m+[m[32m</html>[m
+\ No newline at end of file[m
+[1mdiff --git a/juego.html b/juego.html[m
+[1mnew file mode 100644[m
+[1mindex 0000000..4035311[m
+[1m--- /dev/null[m
+[1m+++ b/juego.html[m
+[36m@@ -0,0 +1,25 @@[m
+[32m+[m[32m<!DOCTYPE html>[m
+[32m+[m[32m<html>[m
+[32m+[m[32m<head>[m
+[32m+[m[32m    <meta charset="utf-8" />[m
+[32m+[m[32m    <title>Cyber Orb</title>[m
+[32m+[m[32m    <style> body { margin: 0; background: #333; } </style>[m
+[32m+[m[32m    <script src="src/phaser.min.js"></script>[m
+[32m+[m[32m    <script src="src/Boot.js"></script>[m
+[32m+[m[32m    <script src="src/Preloader.js"></script>[m
+[32m+[m[32m    <script src="src/MainMenu.js"></script>[m
+[32m+[m[32m    <script src="src/Game.js"></script>[m
+[32m+[m[32m</head>[m
+[32m+[m[32m<body>[m
+[32m+[m[32m<script>[m
+[32m+[m[32m(function() {[m
+[32m+[m[32m    var game = new Phaser.Game(320, 480, Phaser.CANVAS, 'game');[m
+[32m+[m[32m    game.state.add('Boot', Ball.Boot);[m
+[32m+[m[32m    game.state.add('Preloader', Ball.Preloader);[m
+[32m+[m[32m    game.state.add('MainMenu', Ball.MainMenu);[m
+[32m+[m[32m    game.state.add('Game', Ball.Game);[m
+[32m+[m[32m    game.state.start('Boot');[m
+[32m+[m[32m})();[m
+[32m+[m[32m</script>[m
+[32m+[m[32m</body>[m
+[32m+[m[32m</html>[m
+\ No newline at end of file[m
